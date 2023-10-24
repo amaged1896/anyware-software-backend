@@ -20,6 +20,6 @@ export const appRouter = (app, express) => {
     app.use('*', (req, res, next) => {
         next(new AppError(`can't find this route: ${req.originalUrl}`, 404));
     });
-    // // global error handling middleware
-    // app.use(globalErrorHandler);
+    // global error handling middleware
+    app.use(globalErrorHandler);
 };
