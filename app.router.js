@@ -21,8 +21,8 @@ export const appRouter = (app, express) => {
     app.use('/api/v1/task', quizRouter);
 
     // not found page router
-    app.all("*", (req, res, next) => {
-        return next(new AppError('Page not found', 404));
+    app.use('*', (req, res, next) => {
+        next(new AppError(`can't find this route: ${req.originalUrl}`, 404));
     });
     // // global error handling middleware
     // app.use(globalErrorHandler);
