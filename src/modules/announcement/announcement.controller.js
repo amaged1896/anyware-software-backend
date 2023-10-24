@@ -14,7 +14,7 @@ export const createAnnouncement = catchAsync(async (req, res, next) => {
     const announcement = await Announcement.create({
         title: req.body.title,
         announcement: req.body.announcement,
-        createdBy: req.user._id
+        createdBy: req.body.createdBy
     });
     return res.status(200).json({ status: "success", message: "announcement has been created successfully!", data: announcement });
 });

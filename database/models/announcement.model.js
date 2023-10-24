@@ -10,8 +10,7 @@ const announcementSchema = mongoose.Schema({
         required: [true, 'announcement is required']
     },
     createdBy: {
-        type: Types.ObjectId,
-        ref: "user",
+        type: String,
         required: [true, 'announcement creator is required']
     }
 });
