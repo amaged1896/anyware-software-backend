@@ -7,10 +7,6 @@ export const appRouter = (app, express) => {
     // Global Middleware 
     app.use(express.json());
 
-    app.get('/', (req, res) => {
-        res.json({ message: "Home Page" });
-    });
-
     // auth
     app.use('/api/v1/auth', authRouter);
 
