@@ -1,7 +1,7 @@
 
-import { catchAsync } from './../../utils/catchAsync';
-import { Quiz } from './../../../database/models/quiz.model';
-import { AppError } from './../../utils/appError';
+import { catchAsync } from './../../utils/catchAsync.js';
+import { Quiz } from './../../../database/models/quiz.model.js';
+import { AppError } from './../../utils/appError.js';
 
 export const createQuiz = catchAsync(async (req, res, next) => {
     const quiz = await Quiz.create({
