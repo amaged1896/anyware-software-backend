@@ -19,7 +19,7 @@ export const updateQuiz = catchAsync(async (req, res, next) => {
         quiz.topic = req.body.topic,
         quiz.dueTo = req.body.dueTo;
     await quiz.save();
-    return res.status(201).json({ status: "success", quiz });
+    return res.status(201).json({ status: "success", data: quiz });
 });
 
 export const deleteQuiz = catchAsync(async (req, res, next) => {
