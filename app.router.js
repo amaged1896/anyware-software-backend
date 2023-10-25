@@ -14,8 +14,8 @@ export const appRouter = (app, express) => {
     // announcements
     app.use('/api/v1/announcement', announcementRouter);
 
-    // task
-    app.use('/api/v1/task', quizRouter);
+    // quiz
+    app.use('/api/v1/quiz', quizRouter);
 
     // not found page router
     app.use('*', (req, res, next) => {
