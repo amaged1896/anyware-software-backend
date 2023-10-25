@@ -9,7 +9,7 @@ export const appRouter = (app, express) => {
     app.use(express.json());
 
     // CORS
-    const whitelist = ["http://127.0.0.1:5500"];
+    const whitelist = ["https://anyware-software-backend.vercel.app"];
 
     app.use((req, res, next) => {
         if (!whitelist.includes(req.header("origin"))) {

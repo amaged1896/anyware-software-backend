@@ -5,8 +5,6 @@ import dotenv from 'dotenv';
 dotenv.config({ path: './config.env' });
 const app = express();
 
-
-app.use(cors());
 connection();
 
 appRouter(app, express);
