@@ -13,6 +13,6 @@ const announcementSchema = mongoose.Schema({
         type: String,
         required: [true, 'announcement creator is required']
     }
-});
+}, { timestamps: true });
 
 export const Announcement = mongoose.model("announcement", announcementSchema);
