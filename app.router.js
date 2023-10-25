@@ -8,19 +8,6 @@ export const appRouter = (app, express) => {
     // Global Middleware 
     app.use(express.json());
 
-    // CORS
-    // const whitelist = ["https://localhost:5173"];
-
-    // app.use((req, res, next) => {
-    //     if (!whitelist.includes(req.header("origin"))) {
-    //         return next(new AppError("Blocked By CORS!"));
-    //     }
-    //     res.setHeader("Access-Control-Allow-Origin", "*");
-    //     res.setHeader("Access-Control-Allow-Headers", "*");
-    //     res.setHeader("Access-Control-Allow-Methods", "*");
-    //     res.setHeader("Access-Control-Allow-Private-Networks", true);
-    // });
-
     app.use(cors());
     // auth
     app.use('/api/v1/auth', authRouter);
