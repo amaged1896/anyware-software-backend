@@ -9,7 +9,7 @@ export const createQuiz = catchAsync(async (req, res, next) => {
         topic: req.body.topic,
         dueTo: req.body.dueTo
     });
-    return res.status(201).json({ status: "success", quiz });
+    return res.status(201).json({ status: "success", data: quiz });
 });
 
 export const updateQuiz = catchAsync(async (req, res, next) => {
@@ -25,10 +25,10 @@ export const updateQuiz = catchAsync(async (req, res, next) => {
 export const deleteQuiz = catchAsync(async (req, res, next) => {
     const quiz = await Quiz.findByIdAndDelete(req.params.id);
     if (!quiz) return next(new AppError("Quiz not found", 400));
-    return res.status(200).json({ status: "success", message: "quiz has been deleted successfully!", quiz });
+    return res.status(200).json({ status: "success", message: "quiz has been deleted successfully!", data: quiz });
 });
 
 export const getAllQuiz = catchAsync(async (req, res, next) => {
     const quizzes = await Quiz.find();
-    return res.status(201).json({ status: "success", results: quizzes.length, quizzes });
+    return res.status(201).json({ status: "success", results: quizzes.length, data: quizzes });
 });
