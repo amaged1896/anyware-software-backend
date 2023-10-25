@@ -28,14 +28,14 @@ export const getAnnouncement = catchAsync(async (req, res, next) => {
 
 export const updateAnnouncement = catchAsync(async (req, res, next) => {
     const announcement = await Announcement.findOne({ _id: req.params.id });
-    if (announcement) return next(new AppError("announcement is already exist", 400));
+    if (!announcement) return next(new AppError("announcement is not exist", 400));
 
     announcement.title = req.body.title;
     announcement.announcement = req.body.announcement;
+    announcement.createdBy = req.body.createdBy;
     await announcement.save();
 
     return res.status(200).json({ status: "success", message: "announcement has been created successfully!", data: announcement });
-
 });
 
 export const deleteAnnouncement = catchAsync(async (req, res, next) => {
