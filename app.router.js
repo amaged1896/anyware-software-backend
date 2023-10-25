@@ -8,6 +8,19 @@ export const appRouter = (app, express) => {
     // Global Middleware 
     app.use(express.json());
 
+    // CORS
+    const whitelist = ["http://127.0.0.1:5500"];
+
+    app.use((req, res, next) => {
+        if (!whitelist.includes(req.header("origin"))) {
+            return next(new AppError("Blocked By CORS!"));
+        }
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Headers", "*");
+        res.setHeader("Access-Control-Allow-Methods", "*");
+        res.setHeader("Access-Control-Allow-Private-Networks", true);
+    });
+
     // auth
     app.use('/api/v1/auth', authRouter);
 
